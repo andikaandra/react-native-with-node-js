@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Container,Left, Body, Toast, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
 import { connect } from 'react-redux';
-import { fetchTodos } from "../../action/todoActions";
-import SpinnerLoad from '../Spinner/SpinnerLoad';
+import { fetchTodos } from "../../actions/todoActions";
+import SpinnerLoad from '../spinner/SpinnerLoad';
 
 class Todos extends Component {
     constructor(props) {

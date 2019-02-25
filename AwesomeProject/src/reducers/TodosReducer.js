@@ -1,4 +1,4 @@
-import { FETCH_TODOS_BEGIN, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE } from "../action/todoActions";
+import { FETCH_TODOS_BEGIN, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE } from "../actions/todoActions";
   
 const initialState = {
     items: [],

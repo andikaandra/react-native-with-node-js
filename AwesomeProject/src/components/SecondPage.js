@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Container, Header,Left, Body, Right, Footer, FooterTab, Title, Text, Button, Icon, Content, List} from 'native-base';
-import TodoPage from './Todo/TodoPage';
+import { Container } from 'native-base';
+import TodoPage from './todo/TodoPage';
 
 class MainPage extends Component {
     render() {
         return (
             <Container>
-                <TodoPage />
+                {/* <TodoPage /> */}
             </Container>
         );
     }
