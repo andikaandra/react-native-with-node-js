@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'native-base';
 import TodoPage from './todo/TodoPage';
 
-class MainPage extends Component {
+class SecondPage extends Component {
     render() {
         return (
             <Container>
@@ -12,4 +12,4 @@ class MainPage extends Component {
     }
 }
 
-export default (MainPage);
+export default (SecondPage);

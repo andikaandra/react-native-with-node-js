@@ -6,25 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b197a85-36a0-4c6b-aa29-a9ab9fd425ea" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/action/todoActions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/android/app/src/main/java/com/awesomeproject/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/android/app/src/main/java/com/awesomeproject/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/components/MainPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/components/Spinner/SpinnerLoad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/components/Toast/ToastError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/components/Todo/TodoPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/components/Todo/Todos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/ios/AwesomeProject.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/ios/AwesomeProject.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/reducers/AppReducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/reducers/TodosReducer.js" beforeDir="false" />
-    </list>
+    <list default="true" id="1b197a85-36a0-4c6b-aa29-a9ab9fd425ea" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

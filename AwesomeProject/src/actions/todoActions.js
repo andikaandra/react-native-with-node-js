@@ -17,7 +17,27 @@ export function fetchTodos() {
         );
     };
 }
-  
+
+function getTodosDone() {
+    return fetch("http://10.0.2.2:3001/todos/done")
+        .then(handleErrors)
+        .then(res => res.json());
+}
+
+export function fetchTodosDone() {
+    return dispatch => {
+        dispatch(fetchTodosBegin());
+        return getTodosDone()
+        .then(json => {
+            dispatch(fetchTodosSuccess(json.todos));
+            return json.todos;
+        })
+        .catch(error =>
+            dispatch(fetchTodosFailure(error))
+        );
+    };
+}
+
 function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.statusText);

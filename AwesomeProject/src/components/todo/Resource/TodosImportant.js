@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Container,Left, Body, Toast, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
+import { Container,Left, Body, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
 import { connect } from 'react-redux';
-import { fetchTodos } from "../../actions/todoActions";
-import SpinnerLoad from '../spinner/SpinnerLoad';
+import { fetchTodos } from "../../../actions/todoActions";
+import SpinnerLoad from '../../spinner/SpinnerLoad';
 
-class Todos extends Component {
+class TodosImportant extends Component {
     constructor(props) {
         super(props);
         props.dispatch(fetchTodos());
@@ -33,25 +33,16 @@ class Todos extends Component {
         let todos = this.props.todos;
         const listTodo = todos.length ? (
             todos.map(todo => {
-                if (todo.status) {
-                    return(
-                        <ListItem key={todo.id}>
-                            <CheckBox checked={true} />
-                            <Body>
-                                <Text>{todo.title}</Text>
-                            </Body>
-                        </ListItem>
-                    )                    
-                } else {
-                    return(
-                        <ListItem key={todo.id}>
-                            <CheckBox checked={false} onPress={() => alert("This is Card Header")}/>
-                            <Body>
-                                <Text>{todo.title}</Text>
-                            </Body>
-                        </ListItem>
-                    )
-                }
+                let status = todo.status ? true : false;
+                return(
+                    <ListItem key={todo.id}>
+                        <CheckBox checked={status} />
+                        <Body>
+                            <Text>{todo.title}</Text>
+                            <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
+                        </Body>
+                    </ListItem>
+                )      
             })
         ) : (
             <ListItem>
@@ -72,9 +63,9 @@ class Todos extends Component {
 }
 
 const mapStateToProps = state => ({
-    todos: state.todos.items,
+    todos: (state.todos.items).filter(todo => { if (todo.status==2) return todo} ),
     loading: state.todos.loading,
     error: state.todos.error
 });
 
-export default connect(mapStateToProps)(Todos);
+export default connect(mapStateToProps)(TodosImportant);

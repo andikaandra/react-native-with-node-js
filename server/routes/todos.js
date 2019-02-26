@@ -12,6 +12,15 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/done', function(req, res, next) {
+    connection.query ("SELECT * FROM todos WHERE status = 1",  function (err, result, fields) {
+        if (err) {
+            return "error";
+        }
+        res.json({ "todos" : result});
+    });
+});
+
 router.get('/:id', function(req, res, next) {
     connection.query ("SELECT * FROM todos WHERE id = " + req.params.id,  function (err, result, fields) {
         if (err) {
