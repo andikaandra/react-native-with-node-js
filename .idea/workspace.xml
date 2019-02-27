@@ -6,7 +6,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b197a85-36a0-4c6b-aa29-a9ab9fd425ea" name="Default" comment="" />
+    <list default="true" id="1b197a85-36a0-4c6b-aa29-a9ab9fd425ea" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/AwesomeProject/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AwesomeProject/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/android/app/build.gradle" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
