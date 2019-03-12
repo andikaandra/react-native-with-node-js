@@ -7,10 +7,7 @@ class AddTodoPage extends React.Component {
         headerStyle: {
             backgroundColor: '#3F51B5',
         },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-                fontWeight: 'bold',
-        },
+        headerTintColor: '#fff'
     };
     render() {
       return (

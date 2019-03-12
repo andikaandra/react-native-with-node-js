@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container,Left, Body, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
 import { connect } from 'react-redux';
-import { fetchTodos } from "../../../actions/todoActions";
+import { fetchTodos, updateStatusTodos } from "../../../actions/todoActions";
 import SpinnerLoad from '../../spinner/SpinnerLoad';
 
 class Todos extends Component {
@@ -9,10 +9,9 @@ class Todos extends Component {
         super(props);
         props.dispatch(fetchTodos());
         this.state = {
-            "todos" : []
+            ...props
         }
     }
-
     render() {
         let error = this.props.error;
         if (error) {
@@ -36,7 +35,7 @@ class Todos extends Component {
                 let status = todo.status ? true : false;
                 return(
                     <ListItem key={todo.id}>
-                        <CheckBox checked={status} />
+                        <CheckBox checked={status} onPress={() => this.props.dispatch(updateStatusTodos(todo.id))}/>
                         <Body>
                             <Text>{todo.title}</Text>
                             <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>

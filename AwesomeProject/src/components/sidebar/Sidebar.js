@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Image } from "react-native";
 import { Container, Content, Text, ListItem, List} from 'native-base';
-const routes = ['Home', 'Notifications'];
+const routes = ['Todo'];
 
 export default class SideBar extends Component {
     render() {
@@ -39,7 +39,7 @@ export default class SideBar extends Component {
                         contentContainerStyle={{ marginTop: 120 }}
                         renderRow={data => {
                             return (
-                                <ListItem onPress={() => this.props.navigation.navigate(data)}>
+                                <ListItem onPress={() => {this.props.navigation.navigate(data); this.props.navigation.closeDrawer()}}>
                                     <Text>{data}</Text>
                                 </ListItem>
                             );
