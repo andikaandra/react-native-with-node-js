@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container,Left, Body, List, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
+import { Container,Left, Body, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
 import { connect } from 'react-redux';
-import { fetchTodos } from "../../../actions/todoActions";
+import { fetchTodos, updateStatusTodos } from "../../../actions/todoActions";
 import SpinnerLoad from '../../spinner/SpinnerLoad';
 
 class TodosDone extends Component {
@@ -11,6 +11,10 @@ class TodosDone extends Component {
         this.state = {
             "todos" : []
         }
+    }
+
+    handleChangeStatus = (id) => {
+        this.props.dispatch(updateStatusTodos(id));
     }
 
     render() {
@@ -36,9 +40,9 @@ class TodosDone extends Component {
                 let status = todo.status ? true : false;
                 return(
                     <ListItem key={todo.id}>
-                        <CheckBox checked={status} />
+                    <CheckBox checked={status} onPress={() => this.handleChangeStatus(todo.id)}/>
                         <Body>
-                            <Text>{todo.title}</Text>
+                            <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
                             <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
                         </Body>
                     </ListItem>
@@ -47,7 +51,7 @@ class TodosDone extends Component {
         ) : (
             <ListItem>
                 <Left>
-                    <Text>Simon Mignolet</Text>
+                    <Text>No Done Todo</Text>
                 </Left>
                 <Right>
                     <Icon name="arrow-forward" />
@@ -56,7 +60,7 @@ class TodosDone extends Component {
         )
         return (
             <Container>
-                    {listTodo}
+                {listTodo}
             </Container>
         );
     }

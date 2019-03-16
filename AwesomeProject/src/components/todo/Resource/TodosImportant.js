@@ -38,7 +38,7 @@ class TodosImportant extends Component {
                     <ListItem key={todo.id}>
                         <CheckBox checked={status} />
                         <Body>
-                            <Text>{todo.title}</Text>
+                            <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
                             <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
                         </Body>
                     </ListItem>
@@ -47,7 +47,7 @@ class TodosImportant extends Component {
         ) : (
             <ListItem>
                 <Left>
-                    <Text>Simon Mignolet</Text>
+                    <Text>Nothing Important</Text>
                 </Left>
                 <Right>
                     <Icon name="arrow-forward" />

@@ -35,7 +35,7 @@ export const fetchTodosFailure = error => ({
     type: FETCH_TODOS_FAILURE,
     payload: { error }
 });
-
+ 
 function fetchupdateStatusTodos(id){
     return fetch('http://10.0.2.2:3001/todos/change-status/', {
         method: 'POST',
@@ -53,8 +53,8 @@ export function updateStatusTodos(id) {
         dispatch(updateStatusTodosBegin());
         return fetchupdateStatusTodos(id)
         .then(json => {
-            dispatch(updateStatusTodosSuccess());
-            return json.todos;
+            dispatch(updateStatusTodosSuccess(json.todos));
+            return json.todos; 
         })
         .catch(error =>
             dispatch(updateStatusTodosFailure(error))
@@ -71,8 +71,9 @@ export const updateStatusTodosBegin = () => ({
     type: UPDATE_STATUS_TODOS_BEGIN
 });
 
-export const updateStatusTodosSuccess = () => ({
-    type: UPDATE_STATUS_TODOS_SUCCESS
+export const updateStatusTodosSuccess = (todo) => ({
+    type: UPDATE_STATUS_TODOS_SUCCESS,
+    payload: { todo }
 });
   
 export const updateStatusTodosFailure = error => ({

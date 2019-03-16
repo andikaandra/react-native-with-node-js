@@ -44,9 +44,16 @@ export default function TodosReducers(state = initialState, action) {
             };
 
         case UPDATE_STATUS_TODOS_SUCCESS:
+            const newState = (state.items).map((todo) => {
+                if (todo.id === action.payload.todo) {
+                    todo.status = 1 - todo.status;
+                }
+                return todo;
+            })
             return {
                 ...state,
                 loading: false,
+                items: newState
             };
 
         case UPDATE_STATUS_TODOS_FAILURE:

@@ -1,16 +1,19 @@
 {
   "name": "React-Native",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bundle app for student",
   "main": "index.js",
   "scripts": {
-    "client": "cd AwesomeProject && npm start",
-    "server": "cd server && npm start"
+    "start": "cd server && npm start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andikaandra/react-native-with-node-js"
   }
 }

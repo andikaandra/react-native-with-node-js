@@ -12,6 +12,11 @@ class Todos extends Component {
             ...props
         }
     }
+
+    handleChangeStatus = (id) => {
+        this.props.dispatch(updateStatusTodos(id));
+    }
+
     render() {
         let error = this.props.error;
         if (error) {
@@ -35,18 +40,19 @@ class Todos extends Component {
                 let status = todo.status ? true : false;
                 return(
                     <ListItem key={todo.id}>
-                        <CheckBox checked={status} onPress={() => this.props.dispatch(updateStatusTodos(todo.id))}/>
+                        <CheckBox checked={status} onPress={() => this.handleChangeStatus(todo.id)}/>
                         <Body>
-                            <Text>{todo.title}</Text>
+                            <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
                             <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
                         </Body>
+                        <Text note>3:43 pm</Text>
                     </ListItem>
                 )
             })
         ) : (
-            <ListItem>
+            <ListItem >
                 <Left>
-                    <Text>Simon Mignolet</Text>
+                    <Text>No Todo</Text>
                 </Left>
                 <Right>
                     <Icon name="arrow-forward" />
@@ -54,7 +60,7 @@ class Todos extends Component {
             </ListItem>
         )
         return (
-            <Container>
+            <Container >
                 {listTodo}
             </Container>
         );
