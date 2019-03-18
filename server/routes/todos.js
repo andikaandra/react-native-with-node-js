@@ -28,7 +28,7 @@ router.post('/change-status', jsonParser, function (req, res) {
         if (err) {
             return err;
         }
-        res.json({ "todos" : result});
+        res.json({ "todos" : req.body.id});
     });
     console.log(req.body);
 })

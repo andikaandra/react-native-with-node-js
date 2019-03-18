@@ -12,7 +12,7 @@ class TodosDone extends Component {
             "todos" : []
         }
     }
-
+ 
     handleChangeStatus = (id) => {
         this.props.dispatch(updateStatusTodos(id));
     }

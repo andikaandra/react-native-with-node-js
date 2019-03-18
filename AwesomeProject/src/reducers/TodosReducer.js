@@ -49,7 +49,8 @@ export default function TodosReducers(state = initialState, action) {
                     todo.status = 1 - todo.status;
                 }
                 return todo;
-            })
+            });
+            // console.log(newState);
             return {
                 ...state,
                 loading: false,
