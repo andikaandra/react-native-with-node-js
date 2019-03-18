@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
 import todos from "../reducers/TodosReducer";
 
-export default combineReducers({
-    todos
-});
+const reducers = {
+    todos: todos
+}
+const AppReducer = combineReducers(reducers);
+
+export default AppReducer;

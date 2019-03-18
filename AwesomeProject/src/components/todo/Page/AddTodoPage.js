@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-
-class AddTodoPage extends React.Component {
+import React, { Component } from 'react';
+import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Item, Input, Icon, Left, Body, Right } from 'native-base';
+import { Image } from 'react-native';
+class AddTodoPage extends Component {
     static navigationOptions = {
         title: 'Add new todo',
         headerStyle: {
@@ -11,9 +11,33 @@ class AddTodoPage extends React.Component {
     };
     render() {
       return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>ADDTODO!</Text>
-        </View>
+        <Container>
+          <Content>
+            <Card>
+              <CardItem>
+                <Body>
+                  <Body>
+                    <Thumbnail source={{uri: 'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png'}} />
+                    <Text>Add New Todo</Text>
+                    <Text note>GeekyAnts</Text>
+                  </Body>
+                </Body>
+              </CardItem>
+              <CardItem>
+                <Item floatingLabel success>
+                  <Input placeholder='Title'/>
+                  <Icon name='checkmark-circle' />
+                </Item>
+              </CardItem>
+              <CardItem>
+                <Item floatingLabel success>
+                  <Input placeholder='Description'/>
+                  <Icon name='checkmark-circle' />
+                </Item>
+              </CardItem>
+            </Card>
+          </Content>
+        </Container>
       );
     }
 }
