@@ -1,9 +1,9 @@
 function getTodos() {
-    return fetch("http://10.0.2.2:3001/todos/")
+    return fetch("http://172.28.0.1:3001/todos/")
         .then(handleErrors)
         .then(res => res.json());
 }
-
+// 10.0.2.2:3001
 export function fetchTodos() {
     return dispatch => {
         dispatch(fetchTodosBegin());
@@ -17,7 +17,7 @@ export function fetchTodos() {
         );
     };
 }
-
+    
 export const FETCH_TODOS_BEGIN = "FETCH_TODOS_BEGIN";
 export const FETCH_TODOS_SUCCESS = "FETCH_TODOS_SUCCESS";
 export const FETCH_TODOS_FAILURE = "FETCH_TODOS_FAILURE";
@@ -37,7 +37,7 @@ export const fetchTodosFailure = error => ({
 });
  
 function fetchupdateStatusTodos(id){
-    return fetch('http://10.0.2.2:3001/todos/change-status/', {
+    return fetch('http://172.28.0.1:3001/todos/change-status/', {
         method: 'POST',
         headers: { 
             'Accept': 'application/json',

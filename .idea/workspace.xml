@@ -7,13 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b197a85-36a0-4c6b-aa29-a9ab9fd425ea" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/react-native-with-node-js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-native-with-node-js.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AwesomeProject/android/app/src/main/java/com/awesomeproject/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/android/app/src/main/java/com/awesomeproject/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AwesomeProject/ios/AwesomeProject/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/ios/AwesomeProject/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AwesomeProject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AwesomeProject/src/actions/todoActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/src/actions/todoActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/src/components/todo/Resource/Todos.js" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/src/components/todo/Resource/Todos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AwesomeProject/src/reducers/TodosReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/AwesomeProject/src/reducers/TodosReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/todos.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/todos.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,16 +35,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../sdk" />
+    <property name="android.sdk.path" value="D:/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -134,34 +133,47 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info id="simpleUML" order="2" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4985119" weight="0.32972136" />
+      <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5014881" side_tool="true" weight="0.32972136" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49925596" weight="0.32972136" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32972136" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18303572" />
-      <window_info anchor="bottom" id="SonarLint" order="7" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1860817" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="SonarLint" order="7" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="simpleUML" order="2" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">

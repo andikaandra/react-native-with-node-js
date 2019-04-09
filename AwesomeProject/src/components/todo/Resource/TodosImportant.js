@@ -18,7 +18,7 @@ class TodosImportant extends Component {
         if (error) {
             return (
                 <Container>
-                    <Text>Error wkwk</Text>
+                    <Text>Error</Text>
                 </Container>
             );
         }

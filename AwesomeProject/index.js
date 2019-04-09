@@ -11,14 +11,29 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import AppReducer from './src/reducers/AppReducer';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, AppReducer);
+let store = createStore(persistedReducer, applyMiddleware(thunk));
+let persistor = persistStore(store);
 
 class ReduxApp extends React.Component {
-    store = createStore(AppReducer, applyMiddleware(thunk));
+    // store = createStore(AppReducer, applyMiddleware(thunk));
   
     render() {
       return (
-        <Provider store={this.store}>
-          <App />
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
         </Provider>
       );
     }

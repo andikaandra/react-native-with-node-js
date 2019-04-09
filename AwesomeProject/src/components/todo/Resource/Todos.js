@@ -22,9 +22,9 @@ class Todos extends Component {
         if (error) {
             return (
                 <Container>
-                    <Text>Error wkwk</Text>
+                    <Text>Errorss</Text>
                 </Container>
-            );
+            ); 
         }
         let loading = this.props.loading;
         if (loading) {
