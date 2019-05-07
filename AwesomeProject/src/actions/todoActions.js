@@ -1,5 +1,5 @@
 function getTodos() {
-    return fetch("http://172.28.0.1:3001/todos/")
+    return fetch("http://715cc827.ngrok.io/todos/")
         .then(handleErrors)
         .then(res => res.json());
 }
@@ -37,7 +37,7 @@ export const fetchTodosFailure = error => ({
 });
  
 function fetchupdateStatusTodos(id){
-    return fetch('http://172.28.0.1:3001/todos/change-status/', {
+    return fetch('http://715cc827.ngrok.io/todos/change-status/', {
         method: 'POST',
         headers: { 
             'Accept': 'application/json',

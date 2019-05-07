@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container,Left, Body, CheckBox, Right, Text, Icon, ListItem, } from 'native-base';
+import { Container,Left, Body, CheckBox, Right, Text, Icon, Content, List, ListItem } from 'native-base';
 import { connect } from 'react-redux';
 import { fetchTodos, updateStatusTodos } from "../../../actions/todoActions";
 import SpinnerLoad from '../../spinner/SpinnerLoad';
@@ -61,7 +61,11 @@ class Todos extends Component {
         )
         return (
             <Container >
-                {listTodo}
+                <Content>
+                    <List>
+                        {listTodo}
+                    </List>
+                </Content>
             </Container>
         );
     }
