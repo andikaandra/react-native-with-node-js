@@ -10,12 +10,42 @@ import {createAppContainer, createStackNavigator, createDrawerNavigator, createB
 const TodoStack = createStackNavigator(
     {
         Todo: { screen: TodoPage },
-        AddTodo: { screen: AddTodoPage }
+        AddTodo: {
+            screen: AddTodoPage,
+            navigationOptions: { 
+                tabBarVisible: false,
+                title: 'Add new todo',
+                headerStyle: {
+                    backgroundColor: '#3F51B5',
+                },
+                headerTitleStyle: {
+                    fontWeight: "200",
+                    fontSize: 17
+                },
+                headerTintColor: '#fff',                 
+            },
+        }
     },
     {
         initialRouteName: 'Todo',
     }
 );
+
+TodoStack.navigationOptions = ({ navigation }) => {
+    let tabBarVisible;
+    if (navigation.state.routes.length > 1) {
+      navigation.state.routes.map(route => {
+        if (route.routeName === "AddTodo") {
+          tabBarVisible = false;
+        } else {
+          tabBarVisible = true;
+        }
+      });
+    }
+    return {
+      tabBarVisible
+    };
+  };
 
 const TodoNav = createBottomTabNavigator(
     {

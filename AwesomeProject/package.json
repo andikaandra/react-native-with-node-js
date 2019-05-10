@@ -22,7 +22,8 @@
     "redux-form": "^8.1.0",
     "redux-navigation": "^1.0.0",
     "redux-persist": "^5.10.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "tcomb-form-native": "^0.6.20"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",

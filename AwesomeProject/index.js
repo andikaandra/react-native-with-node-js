@@ -14,11 +14,13 @@ import AppReducer from './src/reducers/AppReducer';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: storage,
+  stateReconciler: autoMergeLevel2
 };
 
 const persistedReducer = persistReducer(persistConfig, AppReducer);

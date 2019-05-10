@@ -1,89 +1,81 @@
-function getTodos() {
-    return fetch("http://715cc827.ngrok.io/todos/")
-        .then(handleErrors)
-        .then(res => res.json());
-}
-// 10.0.2.2:3001
 export function fetchTodos() {
     return dispatch => {
         dispatch(fetchTodosBegin());
-        return getTodos()
-        .then(json => {
-            dispatch(fetchTodosSuccess(json.todos));
-            return json.todos;
-        })
-        .catch(error =>
-            dispatch(fetchTodosFailure(error))
-        );
+        dispatch(fetchTodosSuccess());
     };
 }
     
 export const FETCH_TODOS_BEGIN = "FETCH_TODOS_BEGIN";
 export const FETCH_TODOS_SUCCESS = "FETCH_TODOS_SUCCESS";
-export const FETCH_TODOS_FAILURE = "FETCH_TODOS_FAILURE";
 
 export const fetchTodosBegin = () => ({
     type: FETCH_TODOS_BEGIN
 });
   
-export const fetchTodosSuccess = todos => ({
+export const fetchTodosSuccess = () => ({
     type: FETCH_TODOS_SUCCESS,
-    payload: { todos }
 });
-  
-export const fetchTodosFailure = error => ({
-    type: FETCH_TODOS_FAILURE,
-    payload: { error }
-});
- 
-function fetchupdateStatusTodos(id){
-    return fetch('http://715cc827.ngrok.io/todos/change-status/', {
-        method: 'POST',
-        headers: { 
-            'Accept': 'application/json',
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify({id: id})
-    }).then(handleErrors)
-    .then(res => res.json());
+
+// ===============================================================
+
+export function addTodos(value) {
+    return dispatch => {
+        dispatch(addTodosBegin());
+        dispatch(addTodosSuccess(value));
+    };
 }
+
+export const ADD_TODO_TODOS_BEGIN = "ADD_TODO_TODOS_BEGIN";
+export const ADD_TODO_TODOS_SUCCESS = "ADD_TODO_TODOS_SUCCESS";
+
+export const addTodosBegin = () => ({
+    type: ADD_TODO_TODOS_BEGIN
+});
+
+export const addTodosSuccess = (value) => ({
+    type: ADD_TODO_TODOS_SUCCESS,
+    payload: { value }
+});
+
+// ===============================================================
 
 export function updateStatusTodos(id) {
     return dispatch => {
         dispatch(updateStatusTodosBegin());
-        return fetchupdateStatusTodos(id)
-        .then(json => {
-            dispatch(updateStatusTodosSuccess(json.todos));
-            return json.todos; 
-        })
-        .catch(error =>
-            dispatch(updateStatusTodosFailure(error))
-        );
+        dispatch(updateStatusTodosSuccess(id));
     };
 }
 
-
 export const UPDATE_STATUS_TODOS_BEGIN = "UPDATE_STATUS_TODOS_BEGIN";
 export const UPDATE_STATUS_TODOS_SUCCESS = "UPDATE_STATUS_TODOS_SUCCESS";
-export const UPDATE_STATUS_TODOS_FAILURE = "UPDATE_STATUS_TODOS_FAILURE";
 
 export const updateStatusTodosBegin = () => ({
     type: UPDATE_STATUS_TODOS_BEGIN
 });
 
-export const updateStatusTodosSuccess = (todo) => ({
+export const updateStatusTodosSuccess = (id) => ({
     type: UPDATE_STATUS_TODOS_SUCCESS,
-    payload: { todo }
-});
-  
-export const updateStatusTodosFailure = error => ({
-    type: UPDATE_STATUS_TODOS_FAILURE,
-    payload: { error }
+    payload: { id }
 });
 
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
+
+// ===============================================================
+
+export function deleteTodos(id) {
+    return dispatch => {
+        dispatch(deleteTodosBegin());
+        dispatch(deleteTodosSuccess(id));
+    };
 }
+
+export const DELETE_TODOS_BEGIN = "DELETE_TODOS_BEGIN";
+export const DELETE_TODOS_SUCCESS = "DELETE_TODOS_SUCCESS";
+
+export const deleteTodosBegin = () => ({
+    type: DELETE_TODOS_BEGIN
+});
+
+export const deleteTodosSuccess = (id) => ({
+    type: DELETE_TODOS_SUCCESS,
+    payload: { id }
+});

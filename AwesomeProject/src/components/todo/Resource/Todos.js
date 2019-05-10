@@ -22,7 +22,7 @@ class Todos extends Component {
         if (error) {
             return (
                 <Container>
-                    <Text>Errorss</Text>
+                    <Text>Error</Text>
                 </Container>
             ); 
         }
@@ -35,44 +35,44 @@ class Todos extends Component {
             );            
         }
         let todos = this.props.todos;
-        const listTodo = todos.length ? (
-            todos.map(todo => {
-                let status = todo.status ? true : false;
-                return(
-                    <ListItem key={todo.id}>
-                        <CheckBox checked={status} onPress={() => this.handleChangeStatus(todo.id)}/>
-                        <Body>
-                            <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
-                            <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
-                        </Body>
-                        <Text note>3:43 pm</Text>
-                    </ListItem>
-                )
-            })
-        ) : (
-            <ListItem >
-                <Left>
-                    <Text>No Todo</Text>
-                </Left>
-                <Right>
-                    <Icon name="arrow-forward" />
-                </Right>
-            </ListItem>
-        )
-        return (
-            <Container >
+        if (todos.length) {
+            const listTodo = (
+                todos.map(todo => {
+                    let status = todo.status ? true : false;
+                    datetime = (todo.time).split(';')
+                    return(
+                        <ListItem key={todo.id}>
+                            <CheckBox checked={status} onPress={() => this.handleChangeStatus(todo.id)}/>
+                            <Body>
+                                <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
+                                <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
+                            </Body>
+                            <Text note>{datetime[1]}</Text>
+                        </ListItem>
+                    )
+                })
+            );
+            return(
                 <Content>
                     <List>
                         {listTodo}
                     </List>
                 </Content>
-            </Container>
-        );
+            );
+        }
+        else{
+            return (
+                <Content contentContainerStyle={{ flex:1, justifyContent: 'center', alignItems: 'center', backroundColor: '#e6e6fa' }}>
+                    <Icon name="ios-checkmark-circle-outline" style={{fontSize:50, color:'#929191' }}/>
+                    <Text style={{fontSize:22,  textAlign: 'center', color:'#929191', fontWeight: '100' }}>Well, Nothing Todo</Text>
+                </Content>
+            );
+        }
     }
 }
 
 const mapStateToProps = state => ({
-    todos: (state.todos.items).filter(todo => { if (!todo.status) return todo} ),
+    todos: (state.todos.items).filter(todo => { if (!todo.status && !todo.important) return todo} ),
     loading: state.todos.loading,
     error: state.todos.error
 });
