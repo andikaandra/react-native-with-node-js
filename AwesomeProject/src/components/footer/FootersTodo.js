@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
 
-export default class FooterTodo extends Component {
+export default class FooterTodo extends PureComponent {
   render() {
     return (
         <Footer>
@@ -9,19 +9,19 @@ export default class FooterTodo extends Component {
             <Button vertical 
               active={this.props.navigation.state.index === 0}
               onPress={() => this.props.navigation.navigate('Todo')}>
-              <Icon name="ios-close-circle-outline" />
+              <Icon name="md-paper-plane" />
               <Text>Todo</Text>
             </Button>
             <Button vertical
               active={this.props.navigation.state.index === 1}
               onPress={() => this.props.navigation.navigate('Important')}>
-              <Icon name="ios-information-circle-outline" />
+              <Icon name="md-flash" />
               <Text>Important</Text>
             </Button>
             <Button vertical
               active={this.props.navigation.state.index === 2}
               onPress={() => this.props.navigation.navigate('Done')}>
-              <Icon name="ios-checkmark-circle-outline" />
+              <Icon name="md-done-all" />
               <Text>Done</Text>
             </Button>
           </FooterTab>

@@ -3,6 +3,7 @@ import TodoPage from './page/TodoPage';
 import TodoPageDone from './page/TodoDonePage';
 import TodoImportantPage from './page/TodoImportantPage';
 import AddTodoPage from './page/AddTodoPage';
+import CalendarsScreen from '../agenda/CalendarsScreen';
 import SideBar from "../sidebar/Sidebar";
 import FooterTodo from '../footer/FootersTodo';
 import {createAppContainer, createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
@@ -60,14 +61,48 @@ const TodoNav = createBottomTabNavigator(
         }
     },{
         tabBarPosition: 'bottom',
-        swipeEnabled: true,
+        swipeEnabled: false,
+        animationEnabled: false,
+        lazy: true,
+        transitionConfig : () => ({
+            transitionSpec: {
+                duration: 0,
+                timing: Animated.timing,
+                easing: Easing.step0,
+            },
+        }),
         tabBarComponent: props => <FooterTodo {...props} />
 });
+
+const AgendaStack = createStackNavigator(
+    {
+        Agenda: {
+            screen: CalendarsScreen,
+            navigationOptions: { 
+                tabBarVisible: false,
+                title: 'Scheduler',
+                headerStyle: {
+                    backgroundColor: '#3F51B5',
+                },
+                headerTitleStyle: {
+                    fontWeight: "200",
+                    fontSize: 17
+                },
+                headerTintColor: '#fff',
+            },
+        },
+    },{
+        initialRouteName: 'Agenda',
+    }
+);
 
 const DrawerNav = createDrawerNavigator({
         Todo: {
             screen: TodoNav,
-        }
+        },
+        Agenda: {
+            screen: AgendaStack,
+        },
     },{
     contentComponent: props => <SideBar {...props} />
 });

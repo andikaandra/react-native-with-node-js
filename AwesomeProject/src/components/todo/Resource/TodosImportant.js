@@ -1,16 +1,26 @@
-import React, { Component } from 'react';
-import { Container,Left, Body, CheckBox, Right, Text, Icon, Content, List, ListItem } from 'native-base';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { InteractionManager } from 'react-native';
+import { Body, CheckBox, Text, Icon, Content, List, ListItem } from 'native-base';
 import { fetchTodos, updateStatusTodos } from "../../../actions/todoActions";
 import SpinnerLoad from '../../spinner/SpinnerLoad';
 
 class TodosImportant extends Component {
     constructor(props) {
         super(props);
-        props.dispatch(fetchTodos());
         this.state = {
             ...props
         }
+    }
+
+    componentDidMount() {
+        InteractionManager.runAfterInteractions(() => {
+            this.props.dispatch(fetchTodos());
+        });
+    }
+
+    shouldComponentUpdate (nextProps) {
+        return nextProps.todos !== this.props.todos
     }
 
     handleChangeStatus = (id) => {
@@ -18,31 +28,26 @@ class TodosImportant extends Component {
     }
 
     render() {
-        let error = this.props.error;
-        if (error) {
+        if (this.props.error) {
             return (
-                <Container>
+                <Content contentContainerStyle={{ flex:1, justifyContent: 'center', alignItems: 'center' }}>
                     <Text>Error</Text>
-                </Container>
+                </Content>
             );
         }
-        let loading = this.props.loading;
-        if (loading) {
+        if (this.props.loading) {
             return (
-                <Container>
-                    <SpinnerLoad />
-                </Container>
+                <SpinnerLoad />
             );            
         }
         let todos = this.props.todos;
         if (todos.length) {
             const listTodo = (
                 todos.map(todo => {
-                    let status = todo.status ? true : false;
                     datetime = (todo.time).split(';')
                     return(
                         <ListItem key={todo.id}>
-                            <CheckBox checked={status} onPress={() => this.handleChangeStatus(todo.id)}/>
+                            <CheckBox checked={false} onPress={() => this.handleChangeStatus(todo.id)}/>
                             <Body>
                                 <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
                                 <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>

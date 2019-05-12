@@ -103,7 +103,6 @@ class AddTodoPage extends Component {
     handleSubmit = () => {
       const value = this._form.getValue()
       if (!!value) {
-        console.log(value)
         this.props.onSubmitAddTodo(value);
         if (value.important) {
           this.props.navigation.goBack();

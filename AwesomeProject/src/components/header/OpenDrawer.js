@@ -5,7 +5,7 @@ export default class OpenDrawer extends Component {
   render() {
     return (
         <Button transparent onPress={() => this.props.navigation.toggleDrawer()}>
-            <Icon name='menu'/>
+          <Icon name="md-menu" />
         </Button>
     );
   }

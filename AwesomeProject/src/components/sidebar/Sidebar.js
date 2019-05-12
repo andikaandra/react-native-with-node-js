@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Image } from "react-native";
 import { Container, Content, Text, ListItem, List} from 'native-base';
-const routes = ['Todo'];
+const routes = ['Todo', 'Agenda'];
 
-export default class SideBar extends Component {
+export default class SideBar extends PureComponent {
     render() {
         return (
             <Container>

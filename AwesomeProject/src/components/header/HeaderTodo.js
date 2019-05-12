@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Header, Left, Right, Body, Button, Icon, Title } from 'native-base';
 import OpenDrawer from './OpenDrawer';
 
-export default class HeaderTodo extends Component {
+export default class HeaderTodo extends PureComponent {
   render() {
     const headerTitle = this.props.navigation.state.routeName;
     return (
@@ -15,10 +15,10 @@ export default class HeaderTodo extends Component {
             </Body>
             <Right>
                 <Button transparent onPress={() => this.props.navigation.navigate('AddTodo')}>
-                    <Icon name='add' />
+                    <Icon name='md-add' />
                 </Button>
                 <Button transparent>
-                    <Icon name='search' />
+                    <Icon name='md-search' />
                 </Button>
             </Right>
         </Header>
