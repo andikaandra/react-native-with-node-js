@@ -4,6 +4,7 @@ import TodoPageDone from './page/TodoDonePage';
 import TodoImportantPage from './page/TodoImportantPage';
 import AddTodoPage from './page/AddTodoPage';
 import CalendarsScreen from '../agenda/CalendarsScreen';
+import AddNewAgenda from '../agenda/AddNewAgenda';
 import SideBar from "../sidebar/Sidebar";
 import FooterTodo from '../footer/FootersTodo';
 import {createAppContainer, createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
@@ -17,17 +18,16 @@ const TodoStack = createStackNavigator(
                 tabBarVisible: false,
                 title: 'Add new todo',
                 headerStyle: {
-                    backgroundColor: '#3F51B5',
+                    backgroundColor: '#000',
                 },
                 headerTitleStyle: {
                     fontWeight: "200",
                     fontSize: 17
                 },
-                headerTintColor: '#fff',                 
+                headerTintColor: '#ffffff',                 
             },
         }
-    },
-    {
+    },{
         initialRouteName: 'Todo',
     }
 );
@@ -46,7 +46,7 @@ TodoStack.navigationOptions = ({ navigation }) => {
     return {
       tabBarVisible
     };
-  };
+};
 
 const TodoNav = createBottomTabNavigator(
     {
@@ -80,23 +80,39 @@ const AgendaStack = createStackNavigator(
             screen: CalendarsScreen,
             navigationOptions: { 
                 tabBarVisible: false,
-                title: 'Scheduler',
+                title: 'Agenda',
                 headerStyle: {
-                    backgroundColor: '#3F51B5',
+                    backgroundColor: '#000',
                 },
                 headerTitleStyle: {
                     fontWeight: "200",
                     fontSize: 17
                 },
-                headerTintColor: '#fff',
+                headerTintColor: '#ffffff',
             },
         },
+        AddAgenda: {
+            screen: AddNewAgenda,
+            navigationOptions: { 
+                tabBarVisible: false,
+                title: 'Add new agenda',
+                headerStyle: {
+                    backgroundColor: '#000',
+                },
+                headerTitleStyle: {
+                    fontWeight: "200",
+                    fontSize: 17
+                },
+                headerTintColor: '#ffffff',                 
+            },
+        }
     },{
         initialRouteName: 'Agenda',
     }
 );
 
-const DrawerNav = createDrawerNavigator({
+const DrawerNav = createDrawerNavigator(
+    {
         Todo: {
             screen: TodoNav,
         },

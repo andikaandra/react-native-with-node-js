@@ -1,6 +1,4 @@
-import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Item, Input, Icon, Left, Body, Right, StyleProvider  } from 'native-base';
-import material from '../../../../native-base-theme/variables/material';
-import getTheme from '../../../../native-base-theme/components';
+import { Container, Content, Text, Button} from 'native-base';
 import { addTodos } from '../../../actions/todoActions';
 import React, { Component } from 'react';
 import { StyleSheet} from 'react-native';
@@ -17,6 +15,27 @@ const User = t.struct({
 
 const formStyles = {
   ...Form.stylesheet,
+  textbox: {
+    ...Form.stylesheet.textbox,
+    normal: {
+      ...Form.stylesheet.textbox.normal,
+      color: '#000000',
+      borderRadius: 0,
+      borderColor: '#cacfd2',
+      borderWidth: 0,
+      marginBottom: 5,
+      borderBottomWidth: 1,
+    },
+    error: {
+      ...Form.stylesheet.textbox.error,
+      color: '#000000',
+      borderRadius: 0,
+      borderColor: '#cacfd2',
+      borderWidth: 0,
+      marginBottom: 5,
+      borderBottomWidth: 1,
+    },
+  },
   formGroup: {
     normal: {
       marginBottom: 10
@@ -30,7 +49,7 @@ const formStyles = {
       fontWeight: '600'
     },
     error: {
-      color: 'black',
+      color: '#000000',
       fontSize: 18,
       marginBottom: 7,
       fontWeight: '600'
@@ -42,42 +61,10 @@ const options = {
   fields: {
     title: {
       error: 'Title is required',
-      placeholder: 'Todo title'
     },
     description: {
-      error: 'Title is required',
-      placeholder: 'Todo description',
-      multiline: true,
-      stylesheet: {
-        ...Form.stylesheet,
-        controlLabel: {
-          normal: {
-            color: 'black',
-            fontSize: 18,
-            marginBottom: 7,
-            fontWeight: '600'
-          },
-          error: {
-            color: 'black',
-            fontSize: 18,
-            marginBottom: 7,
-            fontWeight: '600'
-          }
-        },
-        textbox: {
-          ...Form.stylesheet.textbox,
-          normal: {
-            ...Form.stylesheet.textbox.normal,
-            height: 100,
-            textAlignVertical: 'top',
-          },
-          error: {
-            ...Form.stylesheet.textbox.error,
-            height: 100,
-            textAlignVertical: 'top',
-          },
-        },
-      },
+      error: 'Description is required',
+      // multiline: true,
     },
   },
   stylesheet: formStyles,
@@ -115,25 +102,18 @@ class AddTodoPage extends Component {
     }
     render() {
       return (
-        <StyleProvider style={getTheme(material)}>
-          <Container style={styles.container}>
-            <Content padder>
-              <Body>
-                <Body>
-                  <Thumbnail source={{uri: 'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png'}} />
-                  <Text style={{fontSize:22}}>Add New Todo</Text>
-                </Body>
-              </Body>
-                <Form 
-                  ref={c => this._form = c}
-                  type={User} 
-                  options={options}/>
-                <Button block onPress={this.handleSubmit}>
-                  <Text>Submit!</Text>
-                </Button>
-            </Content>
-          </Container>
-        </StyleProvider>
+        <Container style={styles.container}>
+          <Content padder>
+              <Form 
+                ref={c => this._form = c}
+                type={User} 
+                options={options}
+              />
+              <Button block onPress={this.handleSubmit} style={{backgroundColor:'#007aff'}}>
+                <Text>Save!</Text>
+              </Button>
+          </Content>
+        </Container>
       );
     }
 }

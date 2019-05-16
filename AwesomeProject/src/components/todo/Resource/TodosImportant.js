@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { InteractionManager } from 'react-native';
-import { Body, CheckBox, Text, Icon, Content, List, ListItem } from 'native-base';
+import { ListView, InteractionManager } from 'react-native';
+import { Body, CheckBox, Text, Icon, Content, List, ListItem, Button } from 'native-base';
 import { fetchTodos, updateStatusTodos } from "../../../actions/todoActions";
 import SpinnerLoad from '../../spinner/SpinnerLoad';
 
 class TodosImportant extends Component {
     constructor(props) {
         super(props);
+        this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
-            ...props
-        }
+            todos : [],
+            basic: true
+        };
     }
 
     componentDidMount() {
@@ -41,27 +43,29 @@ class TodosImportant extends Component {
             );            
         }
         let todos = this.props.todos;
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         if (todos.length) {
-            const listTodo = (
-                todos.map(todo => {
-                    datetime = (todo.time).split(';')
-                    return(
-                        <ListItem key={todo.id}>
-                            <CheckBox checked={false} onPress={() => this.handleChangeStatus(todo.id)}/>
-                            <Body>
-                                <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
-                                <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
-                            </Body>
-                            <Text note>{datetime[1]}</Text>
-                        </ListItem>
-                    )
-                })
-            );
             return(
                 <Content>
-                    <List>
-                        {listTodo}
-                    </List>
+                    <List
+                        leftOpenValue = {65}
+                        dataSource = {this.ds.cloneWithRows(todos)}
+                        renderRow = {todo =>
+                            <ListItem style={{paddingLeft: 18}}>
+                                <CheckBox checked={false} onPress={() => this.handleChangeStatus(todo.id)}/>
+                                <Body>
+                                    <Text numberOfLines={1} ellipsizeMode="tail">{todo.title}</Text>
+                                    <Text note numberOfLines={1} ellipsizeMode="tail">{todo.body}</Text>
+                                </Body>
+                                <Text note>{(todo.time).split(';')[1]}</Text>
+                            </ListItem>
+                        }
+                        renderLeftHiddenRow = {data =>
+                            <Button full onPress={() => alert('Description: '+data.body)}>
+                                <Icon active name="information-circle" />
+                            </Button>
+                        }
+                    />
                 </Content>
             );
         }

@@ -1,32 +1,36 @@
 import React, { Component } from 'react';
-import { Container, Header, Body, Title, Icon, Left, Right, Button, Content, List, StyleProvider} from 'native-base';
+import { Container, Header, Body, Title, Icon, Left, Right, Button } from 'native-base';
 import TodosDone from "../resource/TodosDone";
 import OpenDrawer from '../../header/OpenDrawer';
-import getTheme from '../../../../native-base-theme/components';
-import material from '../../../../native-base-theme/variables/material';
+import { StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+    white: {
+        color: "#ffffff"
+    },
+});
+
 
 class TodoDonePage extends Component {
     render() {
         const headerTitle = this.props.navigation.state.routeName;
         return (  
-            <StyleProvider style={getTheme(material)}>
-                <Container>
-                    <Header>
-                        <Left>
-                            <OpenDrawer navigation={this.props.navigation}/>
-                        </Left>
-                        <Body>
-                            <Title>{headerTitle}</Title>
-                        </Body>
-                        <Right>
-                            <Button transparent>
-                                <Icon name='search' />
-                            </Button>
-                        </Right>
-                    </Header>
-                    <TodosDone />
-                </Container>
-            </StyleProvider>
+            <Container>
+                <Header style={{backgroundColor: '#000'}}>
+                    <Left>
+                        <OpenDrawer navigation={this.props.navigation}/>
+                    </Left>
+                    <Body>
+                        <Title style={styles.white}>{headerTitle}</Title>
+                    </Body>
+                    <Right>
+                        <Button transparent>
+                            <Icon name='search' style={styles.white}/>
+                        </Button>
+                    </Right>
+                </Header>
+                <TodosDone />
+            </Container>
         );
     }
 }
